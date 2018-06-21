@@ -1,7 +1,7 @@
 % Filename: spoon_test_02.m
 % Name: Nick Raymond
 % Date: June 19, 2018
-% Github repo: <add link here>
+% Github repo: https://github.com/nickraymond/Spoon_test_02.git
 %
 % Description: script to test forward difference linear interpolation using NNNN_GPS.csv and NNNN_SYS_file.csv
 
