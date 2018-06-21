@@ -3,7 +3,7 @@
 % Date: June 19, 2018
 % Github repo: https://github.com/nickraymond/Spoon_test_02.git
 %
-% Description: script to test forward difference linear interpolation using NNNN_GPS.csv and NNNN_SYS_file.csv
+% Description: script to test backward difference linear interpolation using NNNN_GPS.csv and NNNN_SYS_file.csv
 
 
 % Step 0: Clean house and setup
@@ -15,9 +15,9 @@
 % Step 1: import CSV files into tables
     
   % CASE 1: uncomment lines to test algorythm using inputs WITHOUT SYS drift error
-    GPS_file = readtable("NNNN_GPS_ideal.csv"); 
-    SYS_file = readtable("NNNN_SYS.csv");     
-    disp("*** Running algorythm WITHOUT drift error ***");
+%     GPS_file = readtable("NNNN_GPS_ideal.csv"); 
+%     SYS_file = readtable("NNNN_SYS.csv");     
+%     disp("*** Running algorythm WITHOUT drift error ***");
  
   % CASE 2: uncomment lines to test algorythm using inputs WITH SYS drift error
 %     GPS_file = readtable("NNNN_GPS_error.csv");      
@@ -52,9 +52,9 @@
     GPS_time(1,1) = GPS_file{1,2} - (GPS_file{1,1}/1000); % units in epoch time
 
 
-% Step 4: use forward difference linear interpolation to convert ard_millis to GPS_time for NNNN_SYS.csv file
+% Step 4: use backward difference linear interpolation to convert ard_millis to GPS_time for NNNN_SYS.csv file
   
-    % note ~ as part of the forward difference method we assume SYS.csv file ran longer than the GPS.csv file
+    % note ~ as part of the backward difference method we assume SYS.csv file ran longer than the GPS.csv file
     n = 2; % initialize counter
 
     for j = 1:height(GPS_file)
