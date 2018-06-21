@@ -273,4 +273,4 @@ where:
   
   ## CASE 3: buoy data
   
-  Run the third case to see the output when using real data buoy. 
+  Run the third case to see the output when using real data buoy. An example of the output has been saved as file 0872_SYS_new.csv in the repo.

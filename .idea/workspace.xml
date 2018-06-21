@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcf33a8d-ca42-4eec-8b69-683c93e5a550" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/NNNN_SYS_new.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +18,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="3770">
-                <caret line="275" column="66" selection-start-line="275" selection-start-column="66" selection-end-line="275" selection-end-column="66" />
+              <first_editor relative-caret-position="535">
+                <caret line="275" column="143" selection-start-line="275" selection-start-column="143" selection-end-line="275" selection-end-column="143" />
               </first_editor>
               <second_editor />
             </state>
@@ -140,8 +141,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="3770">
-            <caret line="275" column="66" selection-start-line="275" selection-start-column="66" selection-end-line="275" selection-end-column="66" />
+          <first_editor relative-caret-position="535">
+            <caret line="275" column="143" selection-start-line="275" selection-start-column="143" selection-end-line="275" selection-end-column="143" />
           </first_editor>
           <second_editor />
         </state>
