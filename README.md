@@ -1,7 +1,7 @@
 # Spoon_test_02
 Matlab code to test linear interpolation using GPS data to correct SYS clock drift
 
-To run the spoon_test_02.m file please download the zip file and open up Matlab 2017a or later and add the folder to the working directory. The uncommnet one of the following sets of lines to run different versions of the NNNN_SYS.csv and NNNN_GPScsv files.
+To run the spoon_test_02.m file please download the zip file and open up Matlab 2017a or later and add the folder to the working directory. Then uncomment one of the following sets of lines to run different versions of the NNNN_SYS.csv and NNNN_GPScsv files.
 
 <pre>
     
@@ -24,7 +24,7 @@ To run the spoon_test_02.m file please download the zip file and open up Matlab 
 </pre>
  
 ### Output
-A new file will be created when you run the program. The name is NNNN_SYS_New.csv. 
+A new file will be created when you run the program. The name is NNNN_SYS_new.csv. 
 
 <p>
 This new file will have the ard_millis data from the SYS.csv file, along with the new GPS Epoch time using linear interpolation to compensate for any drift. This file can be used to compare with the known master files.
@@ -212,7 +212,7 @@ are NOT synchronized. A 1,000 millisecond change in SYS is NOT necessarily equal
 
 When the spoon_test_02.m file is run using this file, the output file
  NNNN_SYS_new.csv will have a uniform 2000 millisecond spacing between the entries the first column, 
- but the entries in the second column with NOT always have a corresponding 2 second spacing. 
+ but the entries in the second column will NOT always have a uniform 2 second spacing. In this example the SYS clock runs fast, so the true elapsed GPS Epock time is less than would be expected if we only used the SYS clock to keep time.
  
  
 
@@ -243,12 +243,12 @@ When the spoon_test_02.m file is run using this file, the output file
 
 When running the spoon_test_02.m program, the output file will NOT have 
 uniform spacing between the entries in the second column, but the corresponding GPS Epoch times
-shown in file NNNN_GPS_error.csv will match those shown in the output file. 
+shown in file NNNN_GPS_error.csv (@ 6000, 16000, 32000, 42000 milliseconds) will match those shown in the output file. 
 
 This is because the backward difference linear integration will use the values from the NNNN_GPS_error.csv file
-to calcualte a list of scaling factors that are then applied to the entries in the NNNN_SYS.csv files to compensate for the SYS clock drift.
+to calculate a list of scaling factors that are then applied to the entries in the NNNN_SYS.csv files to compensate for the SYS clock drift.
 
-This is done with the following calcualtion:
+This is done with the following calculation:
 
 <pre>
 GPS_new[n] = (SYS[n] - SYS[n-1])*scale[j]) + GPS[n-1]
@@ -257,9 +257,14 @@ where:
  n is an index that can span 1 to size(SYS.csv)
  j is an index that can span 1 to size(GPS.csv)
  
+ and: 
+ 
+ scale[j] = (GPS(j+1) - GPS(j)) / (ard_millis(j+1) - ard_millis(j))
+ 
  </pre>
  
- Because we are using the backward difference method, one assumption is that the SYS.csv files will always run for a longer duration than the GPS.csv file. The last scaling factor derived from the GPS.csv file is always applied to the last sets of ard_millis data.
+ The value "scale" is equivalent to the slope of the linear equation y(x) = m*x+b.
+ Because we are using the backward difference method, one assumption is that the SYS.csv files will always run for a longer duration than the GPS.csv file. The last scaling factor derived from the GPS.csv file is always applied to the last sets of ard_millis data points. 
  
  <p>
  A better solution could be implimenting the central 
